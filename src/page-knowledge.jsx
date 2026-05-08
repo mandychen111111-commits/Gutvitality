@@ -6,8 +6,9 @@ function PageKnowledge({ setPage }) {
   const rest = articles.slice(1);
   return (
     <div className="page">
-      <header className="prod-list-head">
-        <div className="container">
+      <header className="prod-list-head" style={{backgroundImage: 'url("assets/hero/knowledge-banner.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative'}}>
+        <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(240,248,248,0.8) 100%)', zIndex: 1}}></div>
+        <div className="container" style={{position: 'relative', zIndex: 2}}>
           <div className="crumbs reveal"><a href="#" onClick={(e)=>{e.preventDefault(); setPage('home');}}>首頁</a><span className="sep">/</span><span>健康知識</span></div>
           <span className="eyebrow reveal" style={{marginTop:24, display:'inline-flex'}}><span className="dot"/>HEALTH JOURNAL</span>
           <h1 className="title h1 reveal" style={{marginTop:14}}>健康知識庫</h1>

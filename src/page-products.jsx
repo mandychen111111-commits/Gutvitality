@@ -9,7 +9,9 @@ function PageProducts({ setPage, setProduct }) {
 
   return (
     <div className="page">
-      <header className="prod-list-head">
+      <header className="prod-list-head" style={{backgroundImage: 'url("assets/hero/products-banner.png")', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative'}}>
+        <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(240,248,248,0.8) 100%)', zIndex: 1}}></div>
+        <div style={{position: 'relative', zIndex: 2}}>
         <div className="container">
           <div className="crumbs reveal"><a href="#" onClick={(e)=>{e.preventDefault(); setPage('home');}}>首頁</a><span className="sep">/</span><span>產品系列</span></div>
           <span className="eyebrow reveal" style={{marginTop:24, display:'inline-flex'}}><span className="dot"/>PRODUCT COLLECTION</span>
@@ -22,6 +24,7 @@ function PageProducts({ setPage, setProduct }) {
               </button>
             ))}
           </div>
+        </div>
         </div>
       </header>
 

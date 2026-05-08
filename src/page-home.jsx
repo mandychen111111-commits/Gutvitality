@@ -1,8 +1,10 @@
 // Home page
 function PageHome({ setPage, setProduct, tweaks }) {
   useReveal();
+  const featured1 = window.DATA.products.find(p => p.id === 'vision'); // 晶亮世界
+  const featured2 = window.DATA.products.find(p => p.id === 'starberry'); // 無敵星星
   const featured = window.DATA.products.find(p => p.featured);
-  const others = window.DATA.products.filter(p => !p.featured).slice(0, 3);
+  const others = window.DATA.products.filter(p => p.id !== 'vision' && p.id !== 'starberry' && p.id !== 'vitastar' && !p.featured).slice(0, 2);
   const articles = window.DATA.articles.slice(0, 3);
   const layout = tweaks.heroLayout || 'split';
 
@@ -11,8 +13,9 @@ function PageHome({ setPage, setProduct, tweaks }) {
   return (
     <div className="page">
       {/* HERO */}
-      <section className="hero" data-layout={layout}>
-        <div className="container">
+      <section className="hero" data-layout={layout} style={{backgroundImage: 'url("assets/hero/banner-bg.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed', minHeight: '600px', position: 'relative'}}>
+        <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(240,248,248,0.8) 100%)', zIndex: 1}}></div>
+        <div className="container" style={{position: 'relative', zIndex: 2}}>
           <div className="hero-grid">
             <div className="hero-text">
               <span className="eyebrow"><span className="dot"/>SCIENCE-BACKED · MEDICAL GRADE</span>
@@ -64,8 +67,6 @@ function PageHome({ setPage, setProduct, tweaks }) {
           </div>
         </div>
       </section>
-
-      {/* WHY */}
       <section className="section">
         <div className="container">
           <div className="sec-head center reveal">
@@ -99,31 +100,44 @@ function PageHome({ setPage, setProduct, tweaks }) {
             <p className="lead">匠心獨運的高端配方，為您的健康生活締造非凡體驗。</p>
           </div>
           <div className="feat reveal">
-            <div className="feat-badge">熱銷冠軍 · BESTSELLER</div>
-            <div className="feat-img">
-              <img src={featured.img} alt={featured.name}/>
+            <div className="feat-badge">榮獲獎項 · AWARD WINNERS</div>
+            <div className="feat-imgs" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:16, marginBottom:24}}>
+              <div>
+                <img src={featured1.img} alt={featured1.name} style={{width:'100%', borderRadius:'var(--r-lg)'}}/>
+                <h4 style={{marginTop:12, marginBottom:4}}>{featured1.name}</h4>
+                <p style={{fontSize:14, color:'var(--muted)'}}>{featured1.subtitle}</p>
+              </div>
+              <div>
+                <img src={featured2.img} alt={featured2.name} style={{width:'100%', borderRadius:'var(--r-lg)'}}/>
+                <h4 style={{marginTop:12, marginBottom:4}}>{featured2.name}</h4>
+                <p style={{fontSize:14, color:'var(--muted)'}}>{featured2.subtitle}</p>
+              </div>
             </div>
             <div className="feat-body">
-              <div className="feat-meta">
-                <span className="tag">🔥 熱銷冠軍</span>
-                <span className="rating"><span className="stars">★★★★★</span> {featured.rating} ({featured.reviews.toLocaleString()})</span>
-              </div>
-              <h3 className="title feat-title">{featured.name}</h3>
-              <p className="feat-sub">{featured.subtitle}</p>
-              <p className="feat-desc">{featured.desc}</p>
-              <div className="feat-tags">
-                {featured.tags.map(t => (
-                  <span key={t} className="ftag"><span className="ico"><Icon.Check size={14}/></span>{t}</span>
-                ))}
-              </div>
-              <div className="feat-cta">
-                <button className="btn btn-primary" onClick={() => { setProduct(featured.id); setPage('product-detail'); }}>了解詳情 <Icon.Arrow/></button>
-                <button className="btn btn-ghost" onClick={() => setPage('contact')}>立即諮詢</button>
+              <p className="feat-desc" style={{marginBottom:24}}>我們的熱銷冠軍產品榮獲多項國際認可，代表業界最高的品質標準與創新配方。</p>
+              <div className="feat-cta" style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:12}}>
+                <button className="btn btn-primary" onClick={() => { setProduct('vision'); setPage('product-detail'); }}>晶亮世界 <Icon.Arrow/></button>
+                <button className="btn btn-primary" onClick={() => { setProduct('starberry'); setPage('product-detail'); }}>無敵星星 <Icon.Arrow/></button>
               </div>
             </div>
           </div>
 
           <div className="prod-grid" style={{marginTop:24}}>
+            {/* 健味星 */}
+            {window.DATA.products.find(p => p.id === 'vitastar') && (
+              <div key="vitastar" className="prod reveal" onClick={() => { setProduct('vitastar'); setPage('product-detail'); }}>
+                <div className="img">
+                  <span className="series">ACTIVE SERIES</span>
+                  <img src={window.DATA.products.find(p => p.id === 'vitastar').img} alt="健味星"/>
+                </div>
+                <div className="body">
+                  <h4>健味星</h4>
+                  <div className="sub">原食酵母益菌膠囊</div>
+                  <p className="desc">高麗菜維他命U與鋅的完美結合</p>
+                  <span className="more">查看詳情 <Icon.Arrow size={14}/></span>
+                </div>
+              </div>
+            )}
             {others.map((p, i) => (
               <div key={p.id} className="prod reveal" data-d={i+1} onClick={() => { setProduct(p.id); setPage('product-detail'); }}>
                 <div className="img">

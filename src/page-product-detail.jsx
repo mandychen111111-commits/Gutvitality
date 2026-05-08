@@ -1,12 +1,17 @@
 // Product detail page
 function PageProductDetail({ setPage, productId }) {
-  const { useState } = React;
+  const { useState, useEffect } = React;
   useReveal();
   const p = window.DATA.products.find(x => x.id === productId) || window.DATA.products[0];
   const [activeImg, setActiveImg] = useState(0);
   const [qty, setQty] = useState(1);
   const [tab, setTab] = useState('spec');
   const [added, setAdded] = useState(false);
+
+  // 滾動到產品標題
+  useEffect(() => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }, [productId]);
 
   const imgs = [p.img, p.img2 || p.img, p.img3 || p.img, p.img];
 
@@ -32,7 +37,7 @@ function PageProductDetail({ setPage, productId }) {
                 ))}
               </div>
               {p.youtubeEmbed && (
-                <div className="product-video reveal" data-d="2" style={{marginTop:32, borderRadius:'var(--r-xl)', overflow:'hidden', aspectRatio:'16/9', border:'1px solid var(--line)'}}>
+                <div className="product-video reveal" data-d="2" style={{marginTop:32, borderRadius:'var(--r-xl)', overflow:'hidden', aspectRatio:'16/9', border:'1px solid var(--line)', width:'100%', maxWidth:'100%'}}>
                   <div dangerouslySetInnerHTML={{__html: p.youtubeEmbed}} style={{width:'100%', height:'100%'}}></div>
                 </div>
               )}

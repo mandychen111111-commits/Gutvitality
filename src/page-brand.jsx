@@ -3,13 +3,14 @@ function PageBrand({ setPage }) {
   useReveal();
   return (
     <div className="page">
-      <section className="brand-hero">
-        <div className="container">
+      <header className="brand-hero" style={{backgroundImage: 'url("assets/hero/brand-banner.png")', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative'}}>
+        <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(240,248,248,0.8) 100%)', zIndex: 1}}></div>
+        <div className="container" style={{position: 'relative', zIndex: 2}}>
           <span className="eyebrow reveal"><span className="dot"/>OUR STORY · 自 2010 年起</span>
           <h1 className="title h1 reveal" style={{marginTop:18}}>從一株菌種，<br/>到一個值得信任的台灣品牌</h1>
           <p className="lead reveal" style={{marginTop:18, maxWidth:'58ch'}}>康耀生技誕生於高雄前鎮的一間小型發酵實驗室。十五年來，我們專注於酵母益菌的研究，從原料、菌種、製程到包裝，堅持以醫療等級的標準對待每一粒膠囊。</p>
         </div>
-      </section>
+      </header>
 
       <section className="section">
         <div className="container">
