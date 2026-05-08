@@ -31,6 +31,11 @@ function PageProductDetail({ setPage, productId }) {
                   </div>
                 ))}
               </div>
+              {p.youtubeEmbed && (
+                <div className="product-video reveal" data-d="2" style={{marginTop:32, borderRadius:'var(--r-xl)', overflow:'hidden', aspectRatio:'16/9', border:'1px solid var(--line)'}}>
+                  <div dangerouslySetInnerHTML={{__html: p.youtubeEmbed}} style={{width:'100%', height:'100%'}}></div>
+                </div>
+              )}
               {p.youtube && (
                 <div className="product-video reveal" data-d="2" style={{marginTop:32, borderRadius:'var(--r-xl)', overflow:'hidden', aspectRatio:'16/9', border:'1px solid var(--line)'}}>
                   <iframe 
@@ -93,7 +98,7 @@ function PageProductDetail({ setPage, productId }) {
                 )}
                 {tab==='how' && (
                   <div style={{color:'var(--ink-2)', lineHeight:1.8}}>
-                    <p>建議每日 2 粒，飯後以溫水（40°C 以下）服用，避免熱水破壞活性益生菌。</p>
+                    <p>建議每日 2 次，每次 2 粒，飯後以溫水（40°C 以下）服用，避免熱水破壞活性益生菌。</p>
                     <p>連續服用 4 週以上效果更佳。可與一般飲食、咖啡、茶併用，但建議與抗生素間隔 2 小時以上。</p>
                   </div>
                 )}

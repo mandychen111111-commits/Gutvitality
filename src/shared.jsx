@@ -22,30 +22,22 @@ window.DATA = {
       rating: 4.9, reviews: 2143,
       price: 1480, original: 1880, save: "-21%",
       featured: true, hot: true,
-      specs: [
-        ["主要成分", "高麗菜維生素U、鋅、益幽盾乳酸菌"],
-        ["菌數", "活菌 200 億 CFU / 粒"],
-        ["容量", "60 粒 / 瓶（30 日份）"],
-        ["建議用量", "每日 2 粒，飯後溫水服用"],
-        ["保存方式", "請置於陰涼乾燥處，避免陽光直射"],
-        ["有效期限", "三年（詳見瓶身）"],
-      ],
+      specs: [["主要成分", "高麗菜維生素U、鋅、益幽盾乳酸菌"],["菌數", "活菌 200 億 CFU / 粒"],["容量","60 粒 / 瓶、20 粒 / 盒"]],
     },
     {
       id: "starberry", name: "無敵星星", series: "BEAUTY", subtitle: "原食酵母益菌膠囊",
       tagline: "高單位乳鐵蛋白，活元益生菌",
       desc: "全面提升體質與活力，專為日常防護而生的全方位配方。",
       tags: ["乳鐵蛋白", "活元益生菌", "增強體力", "日常防護"],
-      img: "assets/products/starberry/box-60.png",
-      img2: "assets/products/starberry/box-20.png",
-      img3: "assets/products/starberry/detail.jpg",
+      img: "assets/products/starberry/bottle.jpg",
+      img2: "assets/products/starberry/box-60.png",
+      img3: "assets/products/starberry/box-20.png",
       rating: 4.8, reviews: 1382,
       price: 1680, original: 2080, save: "-19%",
       specs: [
         ["主要成分", "高單位乳鐵蛋白、活元乳酸菌、維生素 D3"],
         ["菌數", "活菌 150 億 CFU / 粒"],
-        ["容量", "60 粒 / 瓶（30 日份）"],
-        ["建議用量", "每日 2 粒，飯前服用"],
+        ["容量", "60 粒 / 瓶、20 粒 / 盒"],
       ],
     },
     {
@@ -61,7 +53,7 @@ window.DATA = {
       specs: [
         ["主要成分", "蔓越莓萃取、女性益菌、葉酸"],
         ["菌數", "活菌 100 億 CFU / 粒"],
-        ["容量", "60 粒 / 瓶"],
+        ["容量", "60 粒 / 瓶、20 粒 / 盒"],
       ],
     },
     {
@@ -70,11 +62,11 @@ window.DATA = {
       desc: "提升精神活力，為高壓忙碌的現代生活注入長效能量。",
       tags: ["七煌靈芝", "提神活力", "長效能量"],
       img: "assets/products/energy7/box-60.png",
-      img2: "assets/products/energy7/box-20.png",
-      img3: "assets/hero/energy7-lifestyle.jpg",
+      img2: "assets/products/energy7/bottle.png",
+      img3: "assets/products/energy7/box-20.png",
       rating: 4.7, reviews: 612,
       price: 1980, original: 2480, save: "-20%",
-      specs: [["主要成分", "七煌靈芝子實體、靈芝多醣體、酵母 B 群"],["容量","60 粒 / 瓶"]],
+      specs: [["主要成分", "七煌靈芝子實體、靈芝多醣體、酵母 B 群"],["容量","60 粒 / 瓶、20 粒 / 盒"]],
     },
     {
       id: "vision", name: "晶亮世界", series: "VISION", subtitle: "原食酵母益菌膠囊",
@@ -83,11 +75,12 @@ window.DATA = {
       tags: ["游離型葉黃素", "3C 防護", "玉米黃素"],
       img: "assets/products/vision/main.jpg",
       img2: "assets/products/vision/detail.jpg",
-      img3: "https://images.unsplash.com/photo-1583912267550-d44c9a4316da?w=900&q=80",
+      img3: "assets/products/vision/detail.jpg",
       rating: 4.8, reviews: 836,
       price: 1280, original: 1580, save: "-19%",
-      specs: [["主要成分","游離型葉黃素、玉米黃素、花青素"],["容量","60 粒 / 瓶"]],
-      youtube: "acr3GI98uS0",
+      specs: [["主要成分","游離型葉黃素、玉米黃素、花青素"],["容量","60 粒 / 瓶、20 粒 / 盒"]],
+      youtube: null,
+      youtubeEmbed: '<iframe width="560" height="315" src="https://www.youtube.com/embed/acr3GI98uS0?si=SDZXHFLZQoyRfzQ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
     },
     {
       id: "fiber", name: "益纖源", series: "FIBER", subtitle: "複合益生菌粉劑",
@@ -99,7 +92,7 @@ window.DATA = {
       img3: "assets/products/fiber/main.png",
       rating: 4.7, reviews: 1207,
       price: 980, original: 1280, save: "-23%",
-      specs: [["主要成分","複合 12 株乳酸菌、菊苣纖維、果寡糖"],["容量","30 包 / 盒"]],
+      specs: [["主要成分","複合 12 株乳酸菌、菊苣纖維、果寡糖"],["容量","20 入 / 盒"]],
     },
   ],
   articles: [
@@ -171,8 +164,7 @@ function Nav({ page, setPage }) {
     <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
         <button className="brand" onClick={() => go('home')}>
-          <span className="logo-mark">G</span>
-          <span>GutVitality<span style={{color:'var(--muted)', fontWeight:400, marginLeft:6, fontSize:13}}>· 康耀生技</span></span>
+          <img src="assets/logo.png" alt="GutVitality" style={{height: 72, objectFit: 'contain'}} />
         </button>
         <div className={`nav-links ${open?'open':''}`}>
           {window.DATA.nav.map(n => (

@@ -131,8 +131,9 @@ a{color:inherit; text-decoration:none}
 }
 .nav.scrolled{ border-bottom-color: var(--line); }
 .nav-inner{ display:flex; align-items:center; justify-content: space-between; height: 76px; }
-.brand{ display:flex; align-items:center; gap:10px; font-weight:700; font-size:18px; letter-spacing:-0.01em; }
-.brand .logo-mark{ width: 32px; height: 32px; border-radius: 9px; background: var(--grad-brand); display:grid; place-items:center; color:#fff; font-family: var(--font-serif); font-weight:900; }
+.brand{ display:flex; align-items:center; gap:10px; border:0; background:none; font-family: var(--title-font); font-size:20px; font-weight:700; color:var(--ink); cursor:pointer; padding:0; transition: opacity .24s; }
+.brand:hover{ opacity:.85; }
+.brand img{ max-height: 72px; width: auto; transition: opacity .24s; }
 .nav-links{ display:flex; align-items:center; gap: 4px; }
 .nav-links button{
   padding: 10px 14px; border-radius: 999px; font-size: 14px; font-weight:500; color: var(--ink-2);
@@ -373,14 +374,16 @@ a{color:inherit; text-decoration:none}
 
 /* Product detail */
 .detail{ display:grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: start; }
-@media (max-width: 900px){ .detail{ grid-template-columns: 1fr; } }
+@media (max-width: 900px){ .detail{ grid-template-columns: 1fr; gap: 32px; } }
 .detail-gallery{ display:grid; gap: 14px; position: sticky; top: 100px; }
+@media (max-width: 900px){ .detail-gallery{ position: static; } }
 .detail-gallery .main{
   aspect-ratio: 1/1; border-radius: var(--r-xl); overflow:hidden; background: var(--grad-soft);
   border: 1px solid var(--line);
 }
 .detail-gallery .main img{ width:100%; height:100%; object-fit: contain; }
 .thumbs{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+@media (max-width: 600px){ .thumbs{ grid-template-columns: repeat(3, 1fr); } }
 .thumbs .thumb{
   aspect-ratio: 1/1; border-radius: var(--r-m); overflow:hidden; background: var(--grad-soft);
   border: 1px solid var(--line); cursor: pointer; transition: all .25s ease;
@@ -397,6 +400,7 @@ a{color:inherit; text-decoration:none}
 .detail-body .price .save{ background: oklch(0.95 0.04 30); color: oklch(0.5 0.18 30); padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
 
 .benefits{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 24px 0; }
+@media (max-width: 600px){ .benefits{ grid-template-columns: 1fr; } }
 .benefits .b{ display:flex; gap: 12px; align-items:flex-start; padding: 14px; border-radius: var(--r-m); background: var(--surface-2); border:1px solid var(--line); }
 .benefits .b .ico{ width: 36px; height: 36px; border-radius: 10px; background: var(--grad-brand); color:#fff; display:grid; place-items:center; flex-shrink:0; }
 .benefits .b .t{ font-weight: 600; font-size: 14px; color: var(--ink); }
@@ -410,7 +414,9 @@ a{color:inherit; text-decoration:none}
 
 .spec{ margin-top: 28px; }
 .spec-tabs{ display:flex; gap: 24px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
+@media (max-width: 600px){ .spec-tabs{ gap: 12px; } }
 .spec-tabs button{ padding: 12px 0; font-size: 14px; font-weight: 600; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all .25s ease;}
+@media (max-width: 600px){ .spec-tabs button{ font-size: 12px; } }
 .spec-tabs button.active{ color: var(--ink); border-bottom-color: var(--brand-1); }
 .spec table{ width: 100%; border-collapse: collapse; }
 .spec td{ padding: 14px 0; border-bottom: 1px solid var(--line-2); font-size: 14px; }
